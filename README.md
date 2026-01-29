@@ -4,6 +4,37 @@
 This project implements a robust **Error Recovery & Resilience System** for an AI Call Agent that integrates with external services (e.g., ElevenLabs, LLMs, CRMs). The solution focuses on **fault detection, intelligent recovery, circuit breaking, alerting**, and **graceful degradation**.
 
 ## Architecture (high level)
+
+### ASCII Architecture Diagram
+```
+         +----------------------+
+         |   config.yml / env   |
+         +----------+-----------+
+            |
+            v
+      +---------+---------+
+      |  call_processor   |
+      +----+---------+----+
+           |         |
+           |         |
+           v         v
+      +--------+--+   +--+-------------+
+      |  retry()  |   | circuit_breaker |
+      +-----+-----+   +--+-------------+
+        |            |
+        v            v
+     +------+-----+   +--+-----------------+
+     | external   |   |  healthcheck       |
+     | services   |   |  (periodic)        |
+     +------+-----+   +--+-----------------+
+        |            |
+        v            v
+   +--------+----+   +---+-----------------+
+   | alerts      |   | logger              |
+   | (email/tg/  |   | (file + sheets)     |
+   | webhook)    |   +---------------------+
+   +-------------+
+```
 - **Retry logic**: [src/retry.py](src/retry.py) provides a configurable exponential backoff decorator.
 - **Circuit breaker**: [src/circuit_breaker.py](src/circuit_breaker.py) tracks failure rates and blocks unhealthy services.
 - **Alerting**: [src/alerts.py](src/alerts.py) sends Email, Telegram, and Webhook alerts.
@@ -62,6 +93,30 @@ When a service is down:
 - Current call is skipped
 - Next contact in queue is processed
 - System keeps operating instead of blocking
+
+## Error Flow Walkthrough (End-to-End)
+This is the exact path for failures across the system:
+1. **Call starts** in `call_processor`.
+2. **Retry wrapper** validates error type:
+   - If transient, retry with exponential backoff.
+   - If permanent, stop retries immediately.
+3. **Circuit breaker** updates failure stats:
+   - Opens when threshold reached; further calls fail fast.
+4. **Alerts** trigger on repeated failure or breaker open.
+5. **Logging** captures event, error category, retry count, and breaker state.
+6. **Healthcheck** periodically probes service:
+   - On success, resets breaker and resumes normal flow.
+
+## Assignment Point Mapping
+Explicit mapping to the rubric/assignment points:
+- **Fault detection & classification** → Custom exceptions + transient/permanent split (see `exceptions.py`).
+- **Recovery strategy** → Configurable exponential backoff retries (see `retry.py`, `config.yml`).
+- **Circuit breaking** → Failure threshold + recovery timeout (see `circuit_breaker.py`).
+- **Alerting** → Email, Telegram, Webhook on failure (see `alerts.py`).
+- **Observability** → Structured logs + optional Google Sheets (see `logger.py`, `google_sheets_helper.py`).
+- **Health monitoring** → Periodic checks and auto-recovery (see `healthcheck.py`).
+- **Graceful degradation** → Skip failed call, continue queue (see `call_processor.py`).
+- **Scenario compliance** → ElevenLabs 503 handling flow (see Required Scenario section).
 
 ## Required Scenario — ElevenLabs 503
 Handled behavior:
