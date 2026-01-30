@@ -1,4 +1,10 @@
-# Incubation Day 2 — Resilience System
+# Incubation-Day-2---error-recovery-system
+
+```
++---------------------------------------------------+
+| Incubation-Day-2---error-recovery-system           |
++---------------------------------------------------+
+```
 
 ## Overview
 This project implements a robust **Error Recovery & Resilience System** for an AI Call Agent that integrates with external services (e.g., ElevenLabs, LLMs, CRMs). The solution focuses on **fault detection, intelligent recovery, circuit breaking, alerting**, and **graceful degradation**.
