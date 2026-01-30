@@ -1,0 +1,27 @@
+# config.yml
+services:
+  elevenlabs:
+    retry:
+      initial_delay: 5
+      backoff_factor: 2
+      max_attempts: 3
+    circuit_breaker:
+      failure_threshold: 3
+      recovery_timeout: 30
+
+alerts:
+  email:
+    enabled: true
+    from: "no-reply@example.com"
+    to: ["admin@example.com"]
+  telegram:
+    enabled: false
+    chat_id: null  # set via env
+  webhook:
+    enabled: false
+    url: null  # set via env
+
+google_sheets:
+  enabled: true
+  sheet_id: null
+  credentials_path: "google_credentials.json"

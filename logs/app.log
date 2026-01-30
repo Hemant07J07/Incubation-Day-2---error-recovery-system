@@ -1,0 +1,23 @@
+{"timestamp": "2026-01-29T20:10:49Z", "service": "elevenlabs", "event_type": "health_bad", "retry_count": 0, "circuit_breaker": "closed"}
+{"timestamp": "2026-01-29T20:10:49Z", "service": "healthcheck", "event_type": "started", "retry_count": 0, "circuit_breaker": null, "interval": 3}
+{"timestamp": "2026-01-29T20:10:49Z", "service": "elevenlabs", "event_type": "circuit_open_fail_fast", "retry_count": 0, "circuit_breaker": "closed", "contact_id": "c1"}
+{"timestamp": "2026-01-29T20:10:49Z", "service": "elevenlabs", "event_type": "circuit_open_fail_fast", "retry_count": 0, "circuit_breaker": "closed", "contact_id": "c2"}
+{"timestamp": "2026-01-29T20:10:52Z", "service": "elevenlabs", "event_type": "health_bad", "retry_count": 0, "circuit_breaker": "closed"}
+{"timestamp": "2026-01-29T20:10:55Z", "service": "elevenlabs", "event_type": "health_bad", "retry_count": 0, "circuit_breaker": "closed"}
+{"timestamp": "2026-01-29T20:10:58Z", "service": "elevenlabs", "event_type": "health_bad", "retry_count": 0, "circuit_breaker": "closed"}
+{"timestamp": "2026-01-29T20:11:01Z", "service": "elevenlabs", "event_type": "health_ok", "retry_count": 0, "circuit_breaker": "closed"}
+{"timestamp": "2026-01-29T20:11:04Z", "service": "elevenlabs", "event_type": "health_ok", "retry_count": 0, "circuit_breaker": "closed"}
+{"timestamp": "2026-01-29T20:11:04Z", "service": "elevenlabs", "event_type": "circuit_open_fail_fast", "retry_count": 0, "circuit_breaker": "closed", "contact_id": "c1"}
+{"timestamp": "2026-01-29T20:11:04Z", "service": "elevenlabs", "event_type": "circuit_open_fail_fast", "retry_count": 0, "circuit_breaker": "closed", "contact_id": "c2"}
+{"timestamp": "2026-01-29T20:11:05Z", "service": "healthcheck", "event_type": "stopped", "retry_count": 0, "circuit_breaker": null}
+{"timestamp": "2026-01-29T22:02:39Z", "service": "elevenlabs", "event_type": "health_bad", "retry_count": 0, "circuit_breaker": "closed"}
+{"timestamp": "2026-01-29T22:02:39Z", "service": "healthcheck", "event_type": "started", "retry_count": 0, "circuit_breaker": null, "interval": 3}
+{"timestamp": "2026-01-29T22:02:39Z", "service": "elevenlabs", "event_type": "circuit_open_fail_fast", "retry_count": 0, "circuit_breaker": "closed", "contact_id": "c1"}
+{"timestamp": "2026-01-29T22:02:39Z", "service": "elevenlabs", "event_type": "circuit_open_fail_fast", "retry_count": 0, "circuit_breaker": "closed", "contact_id": "c2"}
+{"timestamp": "2026-01-29T22:02:42Z", "service": "elevenlabs", "event_type": "health_bad", "retry_count": 0, "circuit_breaker": "closed"}
+{"timestamp": "2026-01-29T22:02:45Z", "service": "elevenlabs", "event_type": "health_bad", "retry_count": 0, "circuit_breaker": "closed"}
+{"timestamp": "2026-01-29T22:02:48Z", "service": "elevenlabs", "event_type": "health_bad", "retry_count": 0, "circuit_breaker": "closed"}
+{"timestamp": "2026-01-29T22:02:51Z", "service": "elevenlabs", "event_type": "health_ok", "retry_count": 0, "circuit_breaker": "closed"}
+{"timestamp": "2026-01-29T22:02:54Z", "service": "elevenlabs", "event_type": "circuit_open_fail_fast", "retry_count": 0, "circuit_breaker": "closed", "contact_id": "c1"}
+{"timestamp": "2026-01-29T22:02:54Z", "service": "elevenlabs", "event_type": "circuit_open_fail_fast", "retry_count": 0, "circuit_breaker": "closed", "contact_id": "c2"}
+{"timestamp": "2026-01-29T22:02:54Z", "service": "healthcheck", "event_type": "stopped", "retry_count": 0, "circuit_breaker": null}
